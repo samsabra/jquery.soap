@@ -209,7 +209,6 @@ options {
 						req.setRequestHeader("Method", "POST");
 						req.setRequestHeader("SOAPServer", this.SOAPServer);
 						req.setRequestHeader("ALFSSOAuthnToken", "top.GetSSOToken()");
-						alert(top.GetSSOToken());
 						if (contentType === SOAPTool.SOAP11_TYPE) {
 							req.setRequestHeader("SOAPAction", action);
 						}
