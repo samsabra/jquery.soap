@@ -208,7 +208,7 @@ options {
 					beforeSend: function(req) {
 						req.setRequestHeader("Method", "POST");
 						req.setRequestHeader("SOAPServer", this.SOAPServer);
-						req.setRequestHeader("ALFSSOAuthnToken", MHF.sooToken);
+						req.setRequestHeader("ALFSSOAuthnToken", MHF.ssoToken);
 						if (contentType === SOAPTool.SOAP11_TYPE) {
 							req.setRequestHeader("SOAPAction", action);
 						}
