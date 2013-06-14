@@ -194,6 +194,7 @@ options {
 			}
 			if(!!this.Proxy) {
 				var content = soapReq.toString();
+				content = content.substring(0,70)+'<soapenv:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1">'+jQuery.base64.decode(top.GetSSOToken())+'</wsse:Security></soapenv:Header>'+content.substring(70,content.lenght);
 				var contentType = SOAPTool.SOAP11_TYPE;
 				if (SOAPTool.isSOAP12(content)) {
 					contentType = SOAPTool.SOAP12_TYPE;
@@ -208,7 +209,6 @@ options {
 					beforeSend: function(req) {
 						req.setRequestHeader("Method", "POST");
 						req.setRequestHeader("SOAPServer", this.SOAPServer);
-						req.setRequestHeader("ALFSSOAuthnToken", MHF.ssoToken);
 						if (contentType === SOAPTool.SOAP11_TYPE) {
 							req.setRequestHeader("SOAPAction", action);
 						}
